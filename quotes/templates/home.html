@@ -1,1 +1,31 @@
-{{ quote.quote }}
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iqtiboslar</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'quote.css' %}">
+    </style>
+</head>
+
+<body>
+    <div class="quote-container">
+        {% if quote %}
+            <blockquote class="quote-text">
+                <q>{{ quote.quote }}</q>
+            </blockquote>
+            <p class="quote-author">— {{ quote.author.name }}</p>
+        {% else %}
+            <p>No quotes available.</p>
+        {% endif %}
+        <a href="/" class="back-button">← Back to Main</a>  <!-- Update href as needed -->
+    </div>
+</body>
+
+</html>
