@@ -1,3 +1,7 @@
 from django.shortcuts import render
+from .models import Quote
 
-# Create your views here.
+# Home view
+def home_view(request):
+    quotes = Quote.objects.all()
+    return render(request, 'home.html', {'quotes': quotes})
